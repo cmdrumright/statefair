@@ -12,11 +12,11 @@ const addCustomer = () => {
 }
 
 // add listener to eventHub to increment ticket count when ticket is purchased
-eventHub.addEventListener("foodTicketPurchased", addCustomer)
-eventHub.addEventListener("rideTicketPurchased", addCustomer)
-eventHub.addEventListener("showTicketPurchased", addCustomer)
-eventHub.addEventListener("gameTicketPurchased", addCustomer)
-eventHub.addEventListener("fullTicketPurchased", addCustomer)
+eventHub.addEventListener("ticketPurchased", addCustomer)
+// eventHub.addEventListener("rideTicketPurchased", addCustomer)
+// eventHub.addEventListener("showTicketPurchased", addCustomer)
+// eventHub.addEventListener("gameTicketPurchased", addCustomer)
+// eventHub.addEventListener("fullTicketPurchased", addCustomer)
 
 export const Customers = () => {
     contentTarget.innerHTML = `Total tickets purchased: ${customerCount}`
