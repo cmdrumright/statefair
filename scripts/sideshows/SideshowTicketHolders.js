@@ -10,3 +10,7 @@ const eventHub = document.querySelector("#state-fair")
 eventHub.addEventListener("showTicketPurchased", customEvent => {
     contentTarget.innerHTML += `<div class="person gawker"></div>`
 })
+
+eventHub.addEventListener("fullTicketPurchased", customEvent => {
+    contentTarget.innerHTML += `<div class="person bigSpender"></div>`
+})
