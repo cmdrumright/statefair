@@ -1,15 +1,15 @@
-import {  } from "./rides/RideTicketHolders.js"
-import {  } from "./food/FoodTicketHolders.js"
-import {  } from "./games/GameTicketHolders.js"
-import {  } from "./sideshows/SideshowTicketHolders.js"
+import { rideEvent } from "./rides/RideTicketHolders.js"
+import { foodEvent } from "./food/FoodTicketHolders.js"
+import { gameEvent } from "./games/GameTicketHolders.js"
+import { showEvent } from "./sideshows/SideshowTicketHolders.js"
 
 const contentTarget = document.querySelector(".entry")
 const eventHub = document.querySelector("#state-fair")
-const rideEvent = new CustomEvent("rideTicketPurchased")
-const foodEvent = new CustomEvent("foodTicketPurchased")
-const gameEvent = new CustomEvent("gameTicketPurchased")
-const showEvent = new CustomEvent("showTicketPurchased")
-const fullEvent = new CustomEvent("fullTicketPurchased")
+const fullEvent = new CustomEvent("ticketPurchased", {
+    detail: {
+        selectedTicket: "full"
+    }
+})
 
 eventHub.addEventListener("click", clickEvent => {
     const clickTarget = clickEvent.target

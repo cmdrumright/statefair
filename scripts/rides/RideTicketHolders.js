@@ -1,16 +1,16 @@
 const contentTarget = document.querySelector(".rides")
 const eventHub = document.querySelector("#state-fair")
-
-// export const RideTicketHolders = () => {
-//     eventHub.addEventListener("rideTicketPurchased", customEvent => {
-//         contentTarget.innerHTML += `<div class="person rider"></div>`
-//     })
-// }
-
-eventHub.addEventListener("rideTicketPurchased", customEvent => {
-    contentTarget.innerHTML += `<div class="person rider"></div>`
+export const rideEvent = new CustomEvent("ticketPurchased", {
+    detail: {
+        selectedTicket: "ride"
+    }
 })
 
-eventHub.addEventListener("fullTicketPurchased", customEvent => {
-    contentTarget.innerHTML += `<div class="person bigSpender"></div>`
+eventHub.addEventListener("ticketPurchased", customEvent => {
+    if (customEvent.detail.selectedTicket === "ride") {
+        contentTarget.innerHTML += `<div class="person rider"></div>`
+    } else if (customEvent.detail.selectedTicket === "full") {
+        contentTarget.innerHTML += `<div class="person bigSpender"></div>`
+    }
 })
+
